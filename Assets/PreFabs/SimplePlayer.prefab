@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2729399343943131661}
   m_Layer: 0
   m_Name: SimplePlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,16 +103,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5691a40d99c8ef4191deeb528ec45c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  rb: {fileID: 0}
+  speed: 5
   horizontal: 0
-  jumpForce: 7
+  jumpForce: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheck: {fileID: 7830915899171257687}
   groundDistance: 0.2
   isGrounded: 0
+  doubleJump: 0
+  canDash: 1
+  isDashing: 0
+  dashSpeed: 15
+  dashTime: 0.15
+  lookDirection: 1
 --- !u!50 &623435185422129757
 Rigidbody2D:
   serializedVersion: 5
