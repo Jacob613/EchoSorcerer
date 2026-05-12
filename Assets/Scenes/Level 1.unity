@@ -1648,7 +1648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 661662866}
   offset: {x: 0, y: 2, z: -10}
-  smoothTime: 0.25
+  smoothTime: 0
 --- !u!114 &859957471
 MonoBehaviour:
   m_ObjectHideFlags: 0
