@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     private Vector2 movementUpdate;
     [SerializeField] private float horizontal;
 
@@ -17,11 +17,16 @@ public class Player : MonoBehaviour
     
     [SerializeField] private bool isGrounded;
     [SerializeField] private bool doubleJump;
+    [SerializeField] public bool wallJump;
     [SerializeField] private bool canDash = true;
     [SerializeField] private bool isDashing = false;
     [SerializeField] private float dashSpeed = 15f;
     [SerializeField] private float dashTime = 0.15f;
     [SerializeField] private float lookDirection = 1f;
+
+    [SerializeField] private Hands hands;
+
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,12 +45,17 @@ public class Player : MonoBehaviour
         {
             doubleJump = true;
             canDash = true;
+            wallJump = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || doubleJump))
+
+        if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || doubleJump || (wallJump && hands.canGrab)))
         {
-            if (!isGrounded)
+            if (hands.canGrab)
+                wallJump = false;
+            else if (!isGrounded)
                 doubleJump = false;
+            
 
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -56,7 +66,7 @@ public class Player : MonoBehaviour
             StartCoroutine(Dash());
         }
 
-        if (!isDashing)
+        if (!isDashing && !hands.grabbed)
         {
             rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
         }
@@ -78,4 +88,6 @@ public class Player : MonoBehaviour
 
         isDashing = false;
     }
+
+
 }
