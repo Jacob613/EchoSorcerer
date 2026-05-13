@@ -2167,6 +2167,14 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 8460776624563357902, guid: 88bac00b1fe8f0c4f8032a7aeae774e5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.08018869
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460776624563357902, guid: 88bac00b1fe8f0c4f8032a7aeae774e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.18998249
+      objectReference: {fileID: 0}
     - target: {fileID: 9105880493795131900, guid: 88bac00b1fe8f0c4f8032a7aeae774e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.4305377
