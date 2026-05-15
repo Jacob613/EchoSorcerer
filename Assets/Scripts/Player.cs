@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Hands hands;
 
+    [SerializeField] private Animator anim;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,6 +70,7 @@ public class Player : MonoBehaviour
         if (!isDashing && !hands.grabbed)
         {
             rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+            anim.SetFloat("Speed", Mathf.Abs(horizontal));
         }
 
         if (horizontal > 0)
